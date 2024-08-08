@@ -1,0 +1,7 @@
+nome = input("Informe o seu nome: ")
+idade = int(input("Informe a sua idade: "))
+
+if idade >= 18:
+    print(f"Olá, {nome}! Você tem {idade} anos. Então, você é de maior")
+else: 
+    print(f"Olá, {nome}! Você tem {idade} anos. Então, você é de menor")
