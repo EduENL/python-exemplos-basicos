@@ -1,5 +1,5 @@
 i = 1
-while i <= 3:-
+while i <= 3:
 
     user = input("Informe o usupario: ")
     senha = input("Informe a senha: ")
