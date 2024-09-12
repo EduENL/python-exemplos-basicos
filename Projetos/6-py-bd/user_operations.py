@@ -18,7 +18,7 @@ class UserOperations:
             messagebox.showerror("Erro", "Por favor, preencha o campo Nome.")
 
     # Atualiza as informações de um usuário exisente
-    def atualizar_ususario(self):
+    def atualizar_usuario(self):
         if self.ui.selected_user:
             novo_nome = self.ui.nome_entry.get()
             if novo_nome:
@@ -33,15 +33,15 @@ class UserOperations:
             messagebox.showerror("Erro", "Por favor, selcione um usuário para atualizar.")
 
             # Exclui um usuário do banco de dados
-            def excluir_usuario(self):
-                if self.ui.selected_user:
-                    if messagebox.askyesno("Confirmar", "Tem certeza que deseja excluir este usuário?"):
-                        self.db.delete_user(self.ui.selected_user[0])
-                        messagebox.showinfo("Sucesso", "Usuário excluídp com sucesso!")
-                        self.ui.carregar_dados()
-                        self.ui.nome_entry.delete(0, 'end')
-                        self.ui.selected_uset = None
-                else:
-                    messagebox.showerror("Erro", "Por favor, selecione um usuário para excluir.")
+    def excluir_usuario(self):
+        if self.ui.selected_user:
+            if messagebox.askyesno("Confirmar", "Tem certeza que deseja excluir este usuário?"):
+                self.db.delete_user(self.ui.selected_user[0])
+                messagebox.showinfo("Sucesso", "Usuário excluídp com sucesso!")
+                self.ui.carregar_dados()
+                self.ui.nome_entry.delete(0, 'end')
+                self.ui.selected_uset = None
+        else:
+            messagebox.showerror("Erro", "Por favor, selecione um usuário para excluir.")
                 
 

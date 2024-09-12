@@ -11,7 +11,7 @@ class Database:
     def create_table(self):
         self.cursor.execute('''
         CREATE TABLE IF NOT EXISTS usuarios (
-            id INTERGER PRIMARY KEY AUTOINCRMENT, 
+            id INTEGER PRIMARY KEY AUTOINCREMENT, 
             nome TEXT NOT NULL
         )
         ''')
@@ -30,7 +30,7 @@ class Database:
     # Atualixa o nome de um usuário existente
     def update_user(self, id, nome):
         self.cursor.execute("DELETE FROM usuarios WHERE id=?", (id,))
-        self.conn.comit()
+        self.conn.commit()
 
         # Fecha a conexão com o banco de dados 
         def close(self):

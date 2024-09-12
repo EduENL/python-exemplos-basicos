@@ -23,6 +23,16 @@ class TelaCadastro(ctk.CTk):
         super().__init__()
         # Conecta ao banco de dados
         db_path = resource_path('bd/cadastro_simplificado.db')
+
+# Verifica se o diretório existe
+        if not os.path.exists(os.path.dirname(db_path)):
+            os.makedirs(os.path.dirname(db_path))
+
+        # Verifica se o arquivo existe
+        if not os.path.exists(db_path):
+            print(f"Arquivo do banco de dados não encontrado: {db_path}")
+        else:
+            print(f"Arquivo do banco de dados encontrado: {db_path}")
         self.db = Database(db_path)
         self.user_operations = UserOperations(self.db, self)
         self.setup_ui()
@@ -31,7 +41,7 @@ class TelaCadastro(ctk.CTk):
 
     # Define o ícone da janela principal
     def set_icon(self):
-        icon_path = resource_path("assets/inicio.ico")
+        icon_path = resource_path("Projetos/6-py-bd/assets/inicio.ico")
         try:
             self.iconbitmap(icon_path)
         except:
@@ -43,12 +53,12 @@ class TelaCadastro(ctk.CTk):
         self.geometry("600x500")
 
         # Carrega as imagens para os modos claro e escuro
-        self.light_image = ctk.CTkImage(Image.open(resource_path("assets/light_icon.png")), size=(20, 20))
-        self.dark_image = ctk.CTkImage(Image.open(resource_path("assets/dark_icon.png")), size=(20, 20))
+        self.light_image = ctk.CTkImage(Image.open(resource_path("Projetos/6-py-bd/assets/light_icon.png")), size=(20, 20))
+        self.dark_image = ctk.CTkImage(Image.open(resource_path("Projetos/6-py-bd/assets/dark_icon.png")), size=(20, 20))
 
         # Tenta carregar o ícone padrão
         try:
-            icon_image = Image.open(resource_path("assets/inicio.png"))
+            icon_image = Image.open(resource_path("Projetos/6-py-bd/assets/inicio.png"))
             icon_photo = ImageTk.PhotoImage(icon_image)
             self.iconphoto(False, icon_photo)
         except Exception as e:
